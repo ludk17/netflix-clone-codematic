@@ -1,0 +1,11 @@
+<p>movies works!</p>
+<input type="text" name="name" [(ngModel)]="movie.id">
+<input type="text" name="name" [(ngModel)]="movie.name">
+
+<button (click)="save(movie)">Guardar</button>
+
+<ul>
+    <li *ngFor="let m of movies">
+        {{ m.name }}
+    </li>
+</ul>

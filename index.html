@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <body style="background-color:yellow">        
+        <h1>Hola Mundo</h1>
+        <input type="text"  id="name" name="name">
+        <p id="texto"></p>
+        <p id="texto2"></p>
+
+        <p id="texto3"></p>
+
+        <p id="texto4"></p>
+
+    </body>
+
+    <script>
+        var input = document.getElementById("name");
+        var p = document.getElementById("texto");
+        var p2 = document.getElementById("texto2");
+        var p3 = document.getElementById("texto3");
+        var p4 = document.getElementById("texto4");
+        input.addEventListener("input", function(e) {
+            p.innerHTML = input.value;
+            p2.innerHTML = input.value;
+            p3.innerHTML = input.value;
+            p4.innerHTML = input.value;
+        });
+        
+
+    </script>
+</html>
