@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieService } from 'src/app/services/movie.service';
 import { Movie } from '../../entities/movie';
 
 @Component({
@@ -7,27 +8,16 @@ import { Movie } from '../../entities/movie';
   styleUrls: ['./movies.component.scss']
 })
 export class MoviesComponent implements OnInit {
-  
-  movie: Movie = {
-    id: 1,
-    name: "Harry Potter y La Piedra Filosofal",    
-  }
 
-  movies: Movie[] = [
-    {id: 1, name: "Harry Potter y La Piedra Filosofal"},
-    {id: 2, name: "Harry Potter y La Cámara secreta"},
-    {id: 3, name: "Harry Potter y El Prisionero de Azkaban"},
-    {id: 4, name: "Harry Potter y El Cáliz de Fuego"},
-  ]
+  movies: Movie[] = []
 
-  constructor() { }
-
-  save(m: Movie) {
-    console.log("La pelicula " + m.name + " se guardo correctamente");
-    console.log(m);
-  }
+  constructor(private service:MovieService) { }
 
   ngOnInit(): void {
+    this.service.getMovies()
+    .subscribe(data => {
+      this.movies = data;
+    })
   }
 
 }

@@ -1,11 +1,7 @@
-<p>movies works!</p>
-<input type="text" name="name" [(ngModel)]="movie.id">
-<input type="text" name="name" [(ngModel)]="movie.name">
 
-<button (click)="save(movie)">Guardar</button>
+<div class="row">
+    <div class="col" *ngFor="let m of movies">
+        <img src="{{ m.poster }}" width="300" alt="">
+    </div>
 
-<ul>
-    <li *ngFor="let m of movies">
-        {{ m.name }}
-    </li>
-</ul>
+</div>
