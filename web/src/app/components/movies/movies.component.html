@@ -1,7 +1,40 @@
 
-<div class="row">
-    <div class="col" *ngFor="let m of movies">
-        <img src="{{ m.poster }}" width="300" alt="">
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-netflix">
+    <div class="container-fluid">
+      <a class="navbar-brand netflix-title" href="#">NETFLIX CLONE</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Series</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Películas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Animes</a>
+          </li>
+          
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
     </div>
+</nav>
 
+<div class="container-fluid">
+    <div class="row">
+        <div class="netflix-banner">
+        </div>
+        <div class="col" *ngFor="let m of movies">
+            <img src="{{ m.poster }}" width="200" alt="">
+        </div>
+    </div>
 </div>

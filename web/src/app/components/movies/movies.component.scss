@@ -1,7 +1,15 @@
-p.abc{
-    
-    font-size: 100px;
-    color: green;
-    border: 1px solid red;
-    text-shadow: 2px 2px #ff0000;
+.bg-netflix {
+    background-color: rgb(50, 102, 212);
+} 
+
+.netflix-title {
+    color:rgb(236, 111, 111);
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.netflix-banner {
+    height:60vh;
+    background-image: url('https://pbs.twimg.com/media/CyzHUj3WQAAv7i6?format=jpg&name=large');
+    background-size: cover;
 }

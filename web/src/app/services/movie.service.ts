@@ -2,20 +2,21 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Movie } from '../entities/movie';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
 
-  constructor(private http:HttpClient) {}
+  constructor(private http:HttpClient, private auth: AuthService) {}
 
   getMovies(): Observable<Movie[]>{
     const url = 'http://127.0.0.1:8000/api/movies';
     
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + 'askdaskdasdalsdnasdk'
+      'Authorization': 'Bearer ' + this.auth.getToken()
     })
     
     return this.http
