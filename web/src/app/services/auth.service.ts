@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Token } from '../entities/token';
 import { User } from '../entities/user';
 
@@ -15,7 +16,7 @@ export class AuthService {
 
   login(user:User): Observable<Token> {
     return this.http
-    .post<Token>('http://localhost:8080/api/token/', user)
+    .post<Token>(environment.api_url + '/api/token/', user)
     .pipe()
   }
 

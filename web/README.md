@@ -25,3 +25,39 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+
+## Despliegue WEB / Interfaz
+1. modificar archivo environment.prod.ts colocar servidor y puerto correcto
+2. Ejecutar comando (reemplazar lo que sea necesario)
+```
+ng build --configuration=production --base-href=/luigui/
+```
+3. Zip dist/web 
+4. copiar al server
+```
+scp -i /ruta/llave-seguridad.pem archivo-copiar.zip usuario@ip-server:/tmp
+```
+5. descomprimir en /var/www/html
+```
+mv /tmp/nombre-archivo.zip /var/www/html
+cd /var/www/html
+unzip /tmp/nombre-archivo.zip 
+```
+
+### Deplegar application
+1. Comprimir todo menos env folder
+2. Copiar al servidor y descomprimir en cualquier lugar
+3. Instalar requirements.txt
+```
+pip install -r requirements
+```
+4. Instalar gunicorn
+```
+pip install gunicorn
+```
+5. Iniciar application
+```
+gunicorn nombre_app.wsgi --bind=0.0.0.0:<port>
+```

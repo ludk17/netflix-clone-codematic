@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Movie } from '../entities/movie';
 import { AuthService } from './auth.service';
 
@@ -12,7 +13,7 @@ export class MovieService {
   constructor(private http:HttpClient, private auth: AuthService) {}
 
   getMovies(): Observable<Movie[]>{
-    const url = 'http://127.0.0.1:8080/api/movies';
+    const url = environment.api_url + '/api/movies';
     
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
