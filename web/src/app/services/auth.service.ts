@@ -15,7 +15,7 @@ export class AuthService {
 
   login(user:User): Observable<Token> {
     return this.http
-    .post<Token>('http://localhost:8000/api/token/', user)
+    .post<Token>('http://localhost:8080/api/token/', user)
     .pipe()
   }
 
@@ -25,5 +25,9 @@ export class AuthService {
 
   getToken(): string {
     return this.cookie.get("TOKEN_ACCESS_NETFLIX_CLONE");
+  }
+
+  clearToken(): void {
+    this.cookie.delete("TOKEN_ACCESS_NETFLIX_CLONE");
   }
 }

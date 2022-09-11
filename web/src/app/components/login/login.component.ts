@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/entities/user';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -11,7 +12,7 @@ export class LoginComponent implements OnInit {
 
   user = {} as User;
 
-  constructor(private service: AuthService) { }
+  constructor(private service: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -21,6 +22,7 @@ export class LoginComponent implements OnInit {
       .subscribe(token => {
         console.log(token);
         this.service.setToken(token.access);
+        this.router.navigate(['/']);
       });
   }
 
